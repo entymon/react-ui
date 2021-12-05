@@ -1,32 +1,39 @@
 import { combineReducers } from 'redux'
 
-const selectedPageReducer = (selectedPage = null, action) => {
-    if (action.type = 'PAGE_SELECTED') {
-        return action.payload;
+const selectedPageReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'PAGE_SELECTED':
+        return {
+            ...state,
+            selectedPage: action.payload
+        }   
+        default:
+        return state 
     }
-
-    return selectedPage;
 }
 
-const printsReducer = () => {
-    return [
-        {
-            title: 'print1',
-            desc: 'somethidnd1'
-        },
-        {
-            title: 'print2',
-            desc: 'somethidnd2'
-        }
-    ]
+const printsReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'LOAD_NEW_PAGE':
+        return {
+            ...state,
+            prints: action.payload
+        }   
+        default:
+        return state 
+    }
 }
 
-const selectedPrintReducer = (selectedPrint = null, action) => {
-    if (action.type = 'PRINT_SELECTED') {
-        return action.payload;
+const selectedPrintReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'PRINT_SELECTED':
+        return {
+            ...state,
+            selectedPrint: action.payload
+        }   
+        default:
+        return state 
     }
-
-    return selectedPrint;
 }
 
 export default combineReducers({
