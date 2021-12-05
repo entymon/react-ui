@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import styles from './PrintList.module.scss';
 import PrintListElement from '../PrintListElement/PrintListElement';
 
@@ -11,4 +12,4 @@ const PrintList = (props) => {
 
 PrintList.defaultProps = {};
 
-export default PrintList;
+export default connect()(PrintList);

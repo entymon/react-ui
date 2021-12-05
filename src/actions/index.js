@@ -4,3 +4,10 @@ export const selectPage = (page) => {
         payload: page
     }
 }
+
+export const selectPrint = (print) => {
+    return {
+        type: 'PRINT_SELECTED',
+        payload: print
+    }
+}
