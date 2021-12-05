@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './PrintList.module.scss';
 import PrintListElement from '../PrintListElement/PrintListElement';
 
 const PrintList = (props) => {
-  return props.feeds.map((print) => (
-    <PrintListElement feed={print}/>
-  ))
+  return props.feeds.map((print) => {
+    console.log(print)
+    return (<PrintListElement key={print.id} feed={print}/>)
+  })
 };
-
-PrintList.propTypes = {};
 
 PrintList.defaultProps = {};
 
