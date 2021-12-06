@@ -1,31 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { useParams } from 'react-router';
 import styles from './PrintView.module.scss';
 
 const PrintView = (props) => {
-    const print = props.print ? 
-    (
-      <div>
-        <h4>{props.print.title}</h4>
-      </div>
-    ) : (
-      <div>Loading print ...</div>
-    )
 
-    return (
-      <div className={styles.PrintView} data-testid="PrintView">
-        { print }
-      </div>
-    )
-};
+  const printId = useParams()?.id
+  const print = props.prints.find(feed => feed.id === parseInt(printId))
+
+  const content = print ? (
+    <div>
+      <h4>{print.title}</h4>
+    </div>
+  ) : (
+    <div>Loading print ...</div>
+  )
+
+  return (
+    <div className={styles.PrintView} data-testid="PrintView">
+      { content }
+    </div>
+  )
+}
 
 PrintView.propTypes = {};
 
 PrintView.defaultProps = {};
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
-    print: state.prints.find(print => print.objectid === 340432)
+    prints: state.print.printsList
   }
 }
 
