@@ -6,7 +6,7 @@ class PrintList extends React.Component {
   render() {
     return this.props.prints.map((print) => {
       return (
-        <PrintListElement feed={print}/>
+        <PrintListElement key={print.id} feed={print}/>
       )
     })
   }
