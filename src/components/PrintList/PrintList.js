@@ -18,7 +18,7 @@ class PrintList extends React.Component {
   render() {
 
     return (
-      <table className="table">
+      <table className="table" data-testid="PrintListElement">
         <thead>
           <tr>
             <th scope="col">ID</th>
