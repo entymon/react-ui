@@ -9,27 +9,40 @@ class Pagination extends React.Component {
     this.props.selectPage(selectedPage)
   }
 
-  // renderElements() {
-  //   const pages = Array.from(Array(10).keys())
-  //   const selectedPage = 3
+  getRangeForPaginator() {
+    const max = this.totalPages < 11 ? this.totalPages : 10
+    const min = 1
+    const pageNumbers = Array.apply(null, {length: max + 1 - min}).map(function(_, idx) {
+        return idx + min;
+    })
+    return pageNumbers
+  }
 
-  //   pages.map((page) => {
-  //       if (selectedPage !== page) {
-  //           console.log(page)
-  //       }
-  //   })
-  // }
+  renderElements() {
+    const pages = this.getRangeForPaginator()
+    return pages.map(pageNumber => {
+      if (this.props.selectedPage === pageNumber) {
+        return (
+          <li key={pageNumber} className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(pageNumber)}>
+            <span className="page-link">{pageNumber}</span>
+          </li>
+        )
+      }
+      return (<li key={pageNumber} className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(pageNumber)} href="/#">{pageNumber}</a></li>)
+    })
+  }
 
   render() {
     return (
       <div className={styles.List} data-testid="Pagination">
         <nav aria-label="...">
           <ul className="pagination pagination-sm">
-            <li className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(1)}>
+            {this.renderElements()}
+            {/* <li className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(1)}>
               <span className="page-link">1</span>
             </li>
             <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(2)} href="/#">2</a></li>
-            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(3)} href="/#">3</a></li>
+            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(3)} href="/#">3</a></li> */}
           </ul>
         </nav>
       </div>
