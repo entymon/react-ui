@@ -7,12 +7,30 @@ class PrintList extends React.Component {
     this.props.dispatch(fetchPrints());
   }
 
-  render() {
+  renderElements() {
     return this.props.prints.map((print) => {
       return (
         <PrintListElement key={print.id} feed={print}/>
       )
     })
+  }
+
+  render() {
+
+    return (
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          { this.renderElements() }
+        </tbody>
+      </table>
+    )
+
   }
 }
 

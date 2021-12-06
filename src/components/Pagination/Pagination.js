@@ -1,7 +1,6 @@
 import React from 'react';
-import styles from './Pagination.module.scss';
 import { connect } from 'react-redux'
-import { selectPage } from '../../actions'
+import { selectPage } from '../../actions/pageActions'
 import { fetchPrints } from "../../actions/printActions";
 class Pagination extends React.Component {
 
@@ -11,7 +10,7 @@ class Pagination extends React.Component {
   }
 
   getRangeForPaginator() {
-    const max = this.totalPages < 11 ? this.totalPages : 10
+    const max = this.totalPages < 21 ? this.totalPages : 20
     const min = 1
     const pageNumbers = Array.apply(null, {length: max + 1 - min}).map((_, idx) => idx + min)
     return pageNumbers
@@ -33,8 +32,8 @@ class Pagination extends React.Component {
 
   render() {
     return (
-      <div className={styles.List} data-testid="Pagination">
-        <nav aria-label="...">
+      <div data-testid="Pagination">
+        <nav>
           <ul className="pagination pagination-sm">
             {this.renderElements()}
           </ul>

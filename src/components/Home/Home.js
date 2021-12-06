@@ -8,12 +8,10 @@ import PrintList from '../PrintList/PrintList'
 import PrintView from '../PrintView/PrintView'
 import Pagination from '../Pagination/Pagination';
 
-import styles from './Home.module.scss';
-
 class Home extends React.Component {
   render() {
     return (
-      <div className={styles.Home} data-testid="Home">
+      <div className="container" data-testid="Home">
         <Router>
           <Routes>
             <Route path="/" element={
