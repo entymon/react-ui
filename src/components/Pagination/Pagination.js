@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './Pagination.module.scss';
+import { connect } from 'react-redux'
 
-class Pagination extends React.Component {
-  render() {
-    return (
-      <div className={styles.List} data-testid="Pagination">
-        Pagination Component
-      </div>
-    )
+const Pagination = (props) => {
+  return (
+    <div className={styles.List} data-testid="Pagination">
+      TEST
+    </div>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    selectedPage: state.selectedPage
   }
 }
 
-export default Pagination;
+export default connect(mapStateToProps)(Pagination);
 

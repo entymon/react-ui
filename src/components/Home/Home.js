@@ -4,10 +4,11 @@ import { BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux'
 // import api from '../../api/api';
 import PrintList from '../PrintList/PrintList'
 import PrintView from '../PrintView/PrintView'
-import { connect } from 'react-redux'
+import Pagination from '../Pagination/Pagination';
 
 import styles from './Home.module.scss';
 
@@ -42,7 +43,12 @@ class Home extends React.Component {
       <div className={styles.Home} data-testid="Home">
         <Router>
           <Routes>
-            <Route path="/" element={<PrintList feeds={this.props.prints}/>} />
+            <Route path="/" element={
+              <div>
+                <PrintList feeds={this.props.prints}/>
+                <Pagination />
+              </div>
+            } />
             <Route path="/print/:id" element={<PrintView />} />
           </Routes>    
         </Router>

@@ -9,6 +9,12 @@ const initState = {
         {"division":"Asian and Mediterranean Art","imagecount":2,"objectnumber":"TL42323.5","creditline":"Promised gift of Robert S. and Betsy G. Feinberg","imagepermissionlevel":0,"dated":"1771, Autumn","id":340519,"title":"Wild Geese and Reeds","department":"Department of Asian Art","objectid":340519},
         {"division":"Asian and Mediterranean Art","imagecount":4,"objectnumber":"TL42323.4","creditline":"Promised gift of Robert S. and Betsy G. Feinberg","imagepermissionlevel":0,"dated":"19th century","id":340527,"title":"Tiger","department":"Department of Asian Art","objectid":340527}
     ],
+    pageInfo: {
+        "totalrecordsperquery":10,
+        "totalrecords":213721,
+        "pages":21373,
+        "page":1
+    },
     selectedPrint: null
 }
 
@@ -27,12 +33,14 @@ const selectedPageReducer = (state = initState, action) => {
 const printsReducer = (state = initState, action) => {
     switch (action.type) {
         case 'LOAD_NEW_PAGE':
+        // logic related to get prints by page
+        // update page as well
         return {
             ...state,
             prints: action.payload
         }   
         default:
-        return state.prints 
+        return state.prints
     }
 }
 

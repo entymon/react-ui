@@ -10,7 +10,6 @@ const PrintList = (props) => {
     return (
       <div>
         <PrintListElement key={print.id} feed={print}/>
-        <Pagination />
       </div>
     )
   })
