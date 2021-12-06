@@ -1,13 +1,13 @@
 export const selectPage = (page) => {
     return {
-        type: 'PAGE_SELECTED',
+        type: 'SELECTED_PAGE',
         payload: page
     }
 }
 
 export const selectPrint = (print) => {
     return {
-        type: 'PRINT_SELECTED',
+        type: 'SELECTED_PRINT',
         payload: print
     }
 }
