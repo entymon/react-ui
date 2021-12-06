@@ -4,7 +4,7 @@ import PrintListElement from '../PrintListElement/PrintListElement'
 import { fetchPrints } from "../../actions/printActions";
 class PrintList extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchPrints());
+    this.props.dispatch(fetchPrints(this.props.selectedPage));
   }
 
   renderElements() {

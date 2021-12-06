@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router';
+import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const PrintView = (props) => {
 
@@ -15,7 +16,12 @@ const PrintView = (props) => {
         console.log(image)
         return (
           <div className="text-center">
-            <img src={image.baseimageurl} className="img-fluid img-thumbnail" alt={image.alttext ?? `${image.imageid}:${image.publiccaption}`} />
+            <img
+              src={image.baseimageurl}
+              width={400}
+              className="img-fluid img-thumbnail"
+              alt={image.alttext ?? `${image.imageid}:${image.publiccaption}`}
+            />
           </div>
         )
       })
@@ -52,6 +58,11 @@ const PrintView = (props) => {
 
   return (
     <div data-testid="PrintView">
+      <div className="text-center">
+        <Link to="/">
+          <button type="button" class="btn btn-primary">go to the list</button>
+        </Link>
+      </div>
       { content }
     </div>
   )
