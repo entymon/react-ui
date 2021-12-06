@@ -11,8 +11,7 @@ const stateInit = {
         "totalrecords":213721,
         "pages":21373,
         "page":1
-    },
-    selectedPrint: null
+    }
 }
 
 export const printsListReducer = (state = stateInit, action) => {

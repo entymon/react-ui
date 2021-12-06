@@ -28,8 +28,8 @@ class Pagination extends React.Component {
             <li className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(1)}>
               <span className="page-link">1</span>
             </li>
-            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(2)}>2</a></li>
-            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(3)}>3</a></li>
+            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(2)} href="/#">2</a></li>
+            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(3)} href="/#">3</a></li>
           </ul>
         </nav>
       </div>
