@@ -19,6 +19,7 @@ class PrintList extends React.Component {
 PrintList.defaultProps = {};
 
 const mapStateToProps = (state) => ({
+  selectedPage: state.page.selectedPage,
   prints: state.print.list,
   loading: state.print.loading,
   error: state.print.error

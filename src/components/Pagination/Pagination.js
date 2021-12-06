@@ -2,19 +2,18 @@ import React from 'react';
 import styles from './Pagination.module.scss';
 import { connect } from 'react-redux'
 import { selectPage } from '../../actions'
-
+import { fetchPrints } from "../../actions/printActions";
 class Pagination extends React.Component {
 
   handleSelectPage(selectedPage) {
+    this.props.refreshPrints(selectedPage)
     this.props.selectPage(selectedPage)
   }
 
   getRangeForPaginator() {
     const max = this.totalPages < 11 ? this.totalPages : 10
     const min = 1
-    const pageNumbers = Array.apply(null, {length: max + 1 - min}).map(function(_, idx) {
-        return idx + min;
-    })
+    const pageNumbers = Array.apply(null, {length: max + 1 - min}).map((_, idx) => idx + min)
     return pageNumbers
   }
 
@@ -38,11 +37,6 @@ class Pagination extends React.Component {
         <nav aria-label="...">
           <ul className="pagination pagination-sm">
             {this.renderElements()}
-            {/* <li className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(1)}>
-              <span className="page-link">1</span>
-            </li>
-            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(2)} href="/#">2</a></li>
-            <li className="page-item"><a className="page-link" onClick={() => this.handleSelectPage(3)} href="/#">3</a></li> */}
           </ul>
         </nav>
       </div>
@@ -51,7 +45,6 @@ class Pagination extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     selectedPage: state.page.selectedPage,
     totalPages: state.print.info.pages
@@ -60,7 +53,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectPage: (pageNumber) => { dispatch(selectPage(pageNumber)) }
+    selectPage: (pageNumber) => { dispatch(selectPage(pageNumber)) },
+    refreshPrints: (pageNumber) => { dispatch(fetchPrints(pageNumber)) }
   }
 }
 

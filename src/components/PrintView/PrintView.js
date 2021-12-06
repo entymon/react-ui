@@ -29,7 +29,7 @@ PrintView.defaultProps = {};
 
 const mapStateToProps = (state) => {
   return {
-    prints: state.print.printsList
+    prints: state.print.list
   }
 }
 
