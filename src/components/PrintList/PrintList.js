@@ -8,9 +8,7 @@ const PrintList = (props) => {
   return props.feeds.map((print) => {
     console.log(print)
     return (
-      <div>
-        <PrintListElement key={print.id} feed={print}/>
-      </div>
+      <PrintListElement key={print.id} feed={print}/>
     )
   })
 };
