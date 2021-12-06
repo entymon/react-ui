@@ -8,8 +8,6 @@ const PrintView = (props) => {
   const printId = useParams()?.id
   const print = props.prints.find(feed => feed.id === parseInt(printId))
 
-  console.log(print)
-
   const renderImages = (images) => {
     if (images) {
       return images.map(image => {
@@ -67,10 +65,6 @@ const PrintView = (props) => {
     </div>
   )
 }
-
-PrintView.propTypes = {};
-
-PrintView.defaultProps = {};
 
 const mapStateToProps = (state) => {
   return {
