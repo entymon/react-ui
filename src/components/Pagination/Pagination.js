@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Pagination.module.scss';
 import { connect } from 'react-redux'
+import { selectPage } from '../../actions'
 
 class Pagination extends React.Component {
 
@@ -8,10 +9,20 @@ class Pagination extends React.Component {
     this.props.selectPage(selectedPage)
   }
 
+  // renderElements() {
+  //   const pages = Array.from(Array(10).keys())
+  //   const selectedPage = 3
+
+  //   pages.map((page) => {
+  //       if (selectedPage !== page) {
+  //           console.log(page)
+  //       }
+  //   })
+  // }
+
   render() {
-    console.log(this.props.selectedPage)
     return (
-      <div className={styles.List} data-testid="Pagination">  
+      <div className={styles.List} data-testid="Pagination">
         <nav aria-label="...">
           <ul className="pagination pagination-sm">
             <li className="page-item active" aria-current="page" onClick={() => this.handleSelectPage(1)}>
@@ -28,15 +39,15 @@ class Pagination extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedPage: state.selectedPage
+    selectedPage: state.page.selectedPage,
+    totalPages: state.print.printsInfo.pages
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectPage: (pageNumber) => { dispatch({ type: 'SELECTED_PAGE', selectedPage: pageNumber }) }
+    selectPage: (pageNumber) => { dispatch(selectPage(pageNumber)) }
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);
-

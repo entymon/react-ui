@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 // import api from '../../api/api';
@@ -13,26 +12,6 @@ import Pagination from '../Pagination/Pagination';
 import styles from './Home.module.scss';
 
 class Home extends React.Component {
-  // _isMounted = false;
-
-  constructor(props) {
-    super(props)
-    // const { prints } =  this.props.store
-    // this.state = {
-    //   prints: [],
-    //   page: 1
-    // }
-  }
-
-  // componentDidMount() {
-  //   this._isMounted = true;
-  //   this.getPrints()
-  // }
-
-  // componentWillUnmount() {
-  //   this._isMounted = false;
-  // }
-
   // getPrints = async (page = 1) => {
   //   const response = await api.get(`/prints/${page}`)
   //   this.setState({ prints: response.data.records })
@@ -50,7 +29,7 @@ class Home extends React.Component {
               </div>
             } />
             <Route path="/print/:id" element={<PrintView />} />
-          </Routes>    
+          </Routes>
         </Router>
       </div>
     )

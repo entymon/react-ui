@@ -1,18 +1,21 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
-import styles from './PrintList.module.scss';
-import PrintListElement from '../PrintListElement/PrintListElement';
-import Pagination from '../Pagination/Pagination';
-
-const PrintList = (props) => {
-  return props.feeds.map((print) => {
-    // console.log(print)
-    return (
-      <PrintListElement key={print.id} feed={print}/>
-    )
-  })
-};
+// import styles from './PrintList.module.scss'
+import PrintListElement from '../PrintListElement/PrintListElement'
+class PrintList extends React.Component {
+  render() {
+    return this.props.prints.map((print) => {
+      return (
+        <PrintListElement feed={print}/>
+      )
+    })
+  }
+}
 
 PrintList.defaultProps = {};
 
-export default connect()(PrintList);
+const mapStateToProps = (state) => ({
+  prints: state.prints.printsList
+});
+
+export default connect(mapStateToProps)(PrintList);
