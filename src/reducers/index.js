@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import {
-    printsListReducer,
-    selectedPrintReducer
+    printsFetchReducer
 } from './printReducer'
 import {
     selectedPageReducer,
@@ -26,7 +25,6 @@ export const initState = {
 }
 
 export default combineReducers({
-    prints: printsListReducer,
-    print: selectedPrintReducer,
+    print: printsFetchReducer,
     page: selectedPageReducer
 })

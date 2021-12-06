@@ -4,7 +4,6 @@ import { BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 import { connect } from 'react-redux'
-// import api from '../../api/api';
 import PrintList from '../PrintList/PrintList'
 import PrintView from '../PrintView/PrintView'
 import Pagination from '../Pagination/Pagination';
@@ -12,11 +11,6 @@ import Pagination from '../Pagination/Pagination';
 import styles from './Home.module.scss';
 
 class Home extends React.Component {
-  // getPrints = async (page = 1) => {
-  //   const response = await api.get(`/prints/${page}`)
-  //   this.setState({ prints: response.data.records })
-  // }
-
   render() {
     return (
       <div className={styles.Home} data-testid="Home">

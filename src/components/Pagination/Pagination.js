@@ -38,9 +38,10 @@ class Pagination extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     selectedPage: state.page.selectedPage,
-    totalPages: state.print.printsInfo.pages
+    totalPages: state.print.info.pages
   }
 }
 
