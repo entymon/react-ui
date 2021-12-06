@@ -1,6 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
 // import api from '../../api/api';
 import PrintList from '../PrintList/PrintList'
+import PrintView from '../PrintView/PrintView'
 import { connect } from 'react-redux'
 
 import styles from './Home.module.scss';
@@ -32,10 +38,14 @@ class Home extends React.Component {
   // }
 
   render() {
-    console.log(this.props.prints)
     return (
       <div className={styles.Home} data-testid="Home">
-        <PrintList feeds={this.props.prints}/>
+        <Router>
+          <Routes>
+            <Route path="/" element={<PrintList feeds={this.props.prints}/>} />
+            <Route path="/print/:id" element={<PrintView />} />
+          </Routes>    
+        </Router>
       </div>
     )
   }
