@@ -19,6 +19,10 @@ const initState = {
 }
 
 const selectedPageReducer = (state = initState, action) => {
+    console.log(action.payload)
+    console.log(state)
+
+    
     switch (action.type) {
         case 'SELECTED_PAGE':
         return {
